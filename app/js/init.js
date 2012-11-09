@@ -1,13 +1,19 @@
 // Init
 
-$(function(){
-	var client = new Client();
-	
+$(document).ready(function(){
+    var doc = $(document);
+    var client = new Client();
+    
 	function Client(){
+        var opts = arguments[0];
+        this.xMax       = opts.width == undefined ? doc.width() :  opts.width;     // Default client width is the document width
+        this.yMax       = doc.height(); // Default client height is the document height
+        this.touch      = Modernizr.touch;
+        this.canvas     = Modernizr.canvas;
+        this.geolocation= Modernizr.geolocation;
+        
+        
 		// Detect things the app needs to know about the client (device type, gps, dimentions etc)
-		// Detect and save device width and height (x,y)
-		// Detect and save device gps capabilities
-		// Detect and save client canvas support
 		// bind client side events and attributes to "this" object
 	}
 	
@@ -47,6 +53,9 @@ $(function(){
 
 
 	execGreeting(2000);		// Create and show a greeting, accepts an argument to change the the time before fading out in miliseconds.
-	execUI(); 				// Create user interface elements and controls
-	execUIEvents(); 		// Bind interface elements to their function
+    execUI();               // Create user interface elements and controls
+	execUIEvents();         // Bind interface elements to their function
+    
+    // Debugging
+    console.log(client);
 });
