@@ -1,0 +1,24 @@
+{
+  "author": "Kendell Joseph <contact@kendelljoseph.com> (http://www.kendelljoseph.com)",
+  "name": "senselab",
+  "description": "Sense Lab",
+  "version": "0.0.0",
+  "homepage": "http://senselab.kendelljoseph.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/altereagle/map.git"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "connect": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "start": "server.js"
+  },
+  "subdomain": "senselab"
+}
