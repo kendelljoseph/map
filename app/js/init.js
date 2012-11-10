@@ -24,43 +24,45 @@ $(document).ready(function(){
                     "images/icons/default/black/computer.png",
                 canvasTypeSrc = self.canvas ? 
                     "images/icons/default/black/flower.png" : 
-                    "images/icons/default/red/flower.png";
+                    "images/icons/default/red/flower.png",
+                geolocTypeSrc = self.geolocation ? 
+                    "images/icons/default/black/globe.png" : 
+                    "images/icons/default/red/globe.png";
             
             /* Create the image elements and set their sources */
             var deviceType = $('<img />')
                     .attr('src', deviceTypeImgSrc),
                 canvasType = $('<img />')
-                    .attr('src', canvasTypeSrc);
+                    .attr('src', canvasTypeSrc),
+                geolocType = $('<img />')
+                    .attr('src', geolocTypeSrc);
             
             /* Create the status bar, set it's default class, and append the image elements */
             self.ui.status = $('<div />')
                 .css("display", "none")
                 .addClass("default_ui")
                 .append(deviceType)
-                .append(canvasType);
+                .append(canvasType)
+                .append(geolocType);
             
             body.append(self.ui.status);
                 self.ui.status.fadeIn(1500);    
-            
-            
+                
             return self.ui.status;
         };
         
-        self.Sample = function(){
-            self.ui.sample = $('<div />')
+        self.Canvas = function(){
+            self.ui.canvas = $('<canvas />')
                 .css("display", "none")
                 .attr("id", "sample")
                 .addClass("default_ui")
-                .css({
-                    width: self.xMax - 40,
-                    height: self.yMax - 140
-                });
+                .attr("width", self.xMax - 40)
+                .attr("height", self.yMax - 140);
             
-            body.append(self.ui.sample);
-                self.ui.sample.fadeIn(1500);
-            
-            
-            return self.ui.sample;
+            body.append(self.ui.canvas);
+                self.ui.canvas.fadeIn(1500);
+                
+            return self.ui.canvas;
         };
         
         self.OpenLayersMap = function(){
@@ -78,7 +80,7 @@ $(document).ready(function(){
 	}
 
     var statusBar = client.Status(), // Create user interface elements and controls
-        sample = client.Sample();
+        sample = client.Canvas();
     
     // Debugging
     console.log(client, statusBar, sample);
