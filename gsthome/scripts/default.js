@@ -3,4 +3,5 @@ $(function(){
     var overlays = $('#overlays');
     var mapContainer = $('#map');
     
+    console.log(overlays)
 });
